@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/searchView"
+        android:icon="@drawable/searchimage"
+        android:title="@string/buscar_contacto"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/switchView"
+        android:title="Cambiar Vista"
+        app:actionLayout="@layout/switch_item"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/iNuevo"
+        android:icon="@drawable/icono_nuevo"
+        android:title="Nuevo Contacto"
+        app:showAsAction="always" />
+
+
+</menu>
