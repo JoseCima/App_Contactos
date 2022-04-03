@@ -55,6 +55,30 @@ class detalle : AppCompatActivity() {
         ivFoto.setImageResource(contacto.foto)
     }
 
+    fun mapearDatosGrid(){
+        val contacto = MainActivity.obtenerContactoGrid(index!!)
+
+        val tvNombre = findViewById<TextView>(R.id.tvNombre)
+        val tvEmpresa = findViewById<TextView>(R.id.tvEmpresa)
+        val tvEdad = findViewById<TextView>(R.id.tvEdad)
+        val tvPeso = findViewById<TextView>(R.id.tvPeso)
+        val tvTelefono = findViewById<TextView>(R.id.tvTelefonos)
+        val tvEmail = findViewById<TextView>(R.id.tvEmails)
+        val tvDireccion = findViewById<TextView>(R.id.tvDirec)
+
+        val ivFoto = findViewById<ImageView>(R.id.ivFoto)
+
+        tvNombre.text = contacto.nombre + " " + contacto.apellidos
+        tvEmpresa.text = contacto.empresa
+        tvEdad.text = contacto.edad.toString() + " años"
+        tvPeso.text = contacto.peso.toString() + " Kg"
+        tvTelefono.text = contacto.telefono
+        tvEmail.text = contacto.email
+        tvDireccion.text = contacto.direccion
+
+        ivFoto.setImageResource(contacto.foto)
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
         menuInflater.inflate(R.menu.menudetalle, menu)
@@ -71,7 +95,9 @@ class detalle : AppCompatActivity() {
             R.id.iEliminar ->{
 
                 MainActivity.eliminarContacto(index)
+
                 finish()
+
                 return true
 
             }
@@ -92,6 +118,7 @@ class detalle : AppCompatActivity() {
         super.onResume()
 
         mapearDatos()
+        mapearDatosGrid()
     }
 
 }

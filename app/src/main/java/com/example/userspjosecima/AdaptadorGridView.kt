@@ -8,12 +8,9 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 
-import org.w3c.dom.Text
+class AdaptadorGridView(var contexto: Context, items:ArrayList<Contacto>): BaseAdapter() {
 
-class AdaptadorLisView(var contexto:Context, items:ArrayList<Contacto>):BaseAdapter() {
-
-
-     var items:ArrayList<Contacto>? =null
+    var items:ArrayList<Contacto>? =null
 
     //Almacenar los datos que se van a mostrar en el ListView
     var copiaItems:ArrayList<Contacto>? = null
@@ -45,10 +42,13 @@ class AdaptadorLisView(var contexto:Context, items:ArrayList<Contacto>):BaseAdap
         items = ArrayList(copiaItems)
         notifyDataSetChanged()
     }
+    //Codigo para actualizar las vistas despues de realizar una operacion
+    fun actualizarVistaGrid(){
+        items?.clear()
+        items= ArrayList(copiaItems)
+    }
 
-
-
-    fun filtrar(string: String){
+    fun filtrarGrid(string: String){
         items?.clear()
 
         if(string.isEmpty()){//Validar cuando el usuario no ha ingresado ningun caracter
@@ -93,7 +93,7 @@ class AdaptadorLisView(var contexto:Context, items:ArrayList<Contacto>):BaseAdap
         var vista:View? = convertView
 
         if( vista == null){
-            vista = LayoutInflater.from(contexto).inflate(R.layout.template_contacto, null)
+            vista = LayoutInflater.from(contexto).inflate(R.layout.template_contacto_grid, null)
 
             viewHolder = ViewHolder(vista)
             vista.tag = viewHolder
@@ -115,16 +115,21 @@ class AdaptadorLisView(var contexto:Context, items:ArrayList<Contacto>):BaseAdap
 
     //definiendo viewholder
     private class ViewHolder(vista:View){
-        var nombre:TextView? = null
-        var foto:ImageView? = null
-        var empresa:TextView? = null
+        var nombre: TextView? = null
+        var foto: ImageView? = null
+        var empresa: TextView? = null
 
         init {
-            nombre = vista.findViewById<TextView>(R.id.idNombre)
-            empresa = vista.findViewById<TextView>(R.id.idDesc)
-            foto = vista.findViewById<ImageView>(R.id.idFoto)
+            nombre = vista.findViewById<TextView>(R.id.gridNombre)
+            empresa = vista.findViewById<TextView>(R.id.gridEmpresa)
+            foto = vista.findViewById<ImageView>(R.id.gridFoto)
 
         }
     }
+
+
+
+
+
 
 }

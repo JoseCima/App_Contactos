@@ -43,6 +43,8 @@ class Nuevo : AppCompatActivity() {
         if(intent.hasExtra("ID")){
             index = intent.getStringExtra("ID")?.toInt()!!
             rellenarDatos(index)
+            rellenarDatosGrid(index)
+
         }
     }
 
@@ -98,8 +100,10 @@ class Nuevo : AppCompatActivity() {
                 }else{
                     if(index > -1){
                         MainActivity.actualizarContacto(index,Contacto(campos.get(0), campos.get(1), campos.get(2), campos.get(3).toInt(), campos.get(4).toFloat(), campos.get(5), campos.get(6), campos.get(7), obtenerFoto(fotoIndex)))
+
                     }else{
                         MainActivity.agregarContacto(Contacto(campos.get(0), campos.get(1), campos.get(2), campos.get(3).toInt(), campos.get(4).toFloat(), campos.get(5), campos.get(6), campos.get(7), obtenerFoto(fotoIndex) ))
+
                     }
 
                      finish()
@@ -182,4 +186,39 @@ class Nuevo : AppCompatActivity() {
             posicion++
         }
     }
+
+    fun rellenarDatosGrid(index:Int){
+
+        val contacto = MainActivity.obtenerContactoGrid(index)
+
+        val tvNombre = findViewById<EditText>(R.id.tvNombre)
+        val tvApellidos = findViewById<EditText>(R.id.txvApellido)
+        val tvEmpresa = findViewById<EditText>(R.id.tvEmpresa)
+        val tvEdad = findViewById<EditText>(R.id.tvEdad)
+        val tvPeso = findViewById<EditText>(R.id.tvPeso)
+        val tvTelefono = findViewById<EditText>(R.id.tvTelefonos)
+        val tvEmail = findViewById<EditText>(R.id.tvEmails)
+        val tvDireccion = findViewById<EditText>(R.id.tvDirec)
+
+        val ivFoto = findViewById<ImageView>(R.id.ivFoto)
+
+        tvNombre.setText(contacto.nombre , TextView.BufferType.EDITABLE)
+        tvApellidos.setText(contacto.apellidos , TextView.BufferType.EDITABLE)
+        tvEmpresa.setText(contacto.empresa , TextView.BufferType.EDITABLE)
+        tvEdad.setText(contacto.edad.toString() , TextView.BufferType.EDITABLE)
+        tvPeso.setText(contacto.peso.toString() , TextView.BufferType.EDITABLE)
+        tvTelefono.setText(contacto.telefono , TextView.BufferType.EDITABLE)
+        tvEmail.setText(contacto.email , TextView.BufferType.EDITABLE)
+        tvDireccion.setText(contacto.direccion , TextView.BufferType.EDITABLE)
+
+        ivFoto.setImageResource(contacto.foto)
+        var posicion = 0
+        for(foto in fotos){
+            if(contacto.foto == foto){
+                fotoIndex = posicion
+            }
+            posicion++
+        }
+    }
+
 }
