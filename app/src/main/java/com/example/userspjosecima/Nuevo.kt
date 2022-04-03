@@ -153,10 +153,7 @@ class Nuevo : AppCompatActivity() {
         return fotos.get(index)
     }
 
-    fun rellenarDatos(index:Int){
-
-        val contacto = MainActivity.obtenerContacto(index)
-
+    fun datos(contacto:Contacto){
         val tvNombre = findViewById<EditText>(R.id.tvNombre)
         val tvApellidos = findViewById<EditText>(R.id.txvApellido)
         val tvEmpresa = findViewById<EditText>(R.id.tvEmpresa)
@@ -187,38 +184,18 @@ class Nuevo : AppCompatActivity() {
         }
     }
 
+    fun rellenarDatos(index:Int){
+
+        val contacto = MainActivity.obtenerContacto(index)
+
+        datos(contacto)
+    }
+
     fun rellenarDatosGrid(index:Int){
 
         val contacto = MainActivity.obtenerContactoGrid(index)
 
-        val tvNombre = findViewById<EditText>(R.id.tvNombre)
-        val tvApellidos = findViewById<EditText>(R.id.txvApellido)
-        val tvEmpresa = findViewById<EditText>(R.id.tvEmpresa)
-        val tvEdad = findViewById<EditText>(R.id.tvEdad)
-        val tvPeso = findViewById<EditText>(R.id.tvPeso)
-        val tvTelefono = findViewById<EditText>(R.id.tvTelefonos)
-        val tvEmail = findViewById<EditText>(R.id.tvEmails)
-        val tvDireccion = findViewById<EditText>(R.id.tvDirec)
-
-        val ivFoto = findViewById<ImageView>(R.id.ivFoto)
-
-        tvNombre.setText(contacto.nombre , TextView.BufferType.EDITABLE)
-        tvApellidos.setText(contacto.apellidos , TextView.BufferType.EDITABLE)
-        tvEmpresa.setText(contacto.empresa , TextView.BufferType.EDITABLE)
-        tvEdad.setText(contacto.edad.toString() , TextView.BufferType.EDITABLE)
-        tvPeso.setText(contacto.peso.toString() , TextView.BufferType.EDITABLE)
-        tvTelefono.setText(contacto.telefono , TextView.BufferType.EDITABLE)
-        tvEmail.setText(contacto.email , TextView.BufferType.EDITABLE)
-        tvDireccion.setText(contacto.direccion , TextView.BufferType.EDITABLE)
-
-        ivFoto.setImageResource(contacto.foto)
-        var posicion = 0
-        for(foto in fotos){
-            if(contacto.foto == foto){
-                fotoIndex = posicion
-            }
-            posicion++
-        }
+        datos(contacto)
     }
 
 }

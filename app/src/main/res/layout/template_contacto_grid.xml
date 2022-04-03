@@ -25,6 +25,7 @@
         android:id="@+id/gridEmpresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:text="TextView"
         android:textAlignment="center" />
 </LinearLayout>

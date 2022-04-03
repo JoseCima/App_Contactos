@@ -25,7 +25,7 @@ class AdaptadorGridView(var contexto: Context, items:ArrayList<Contacto>): BaseA
         //regresar el numero de elementos de mi lista
         return this.items?.count()!!
     }
-
+    /*
     fun addItem(item:Contacto){
         copiaItems?.add(item)
         items = ArrayList(copiaItems)
@@ -41,7 +41,7 @@ class AdaptadorGridView(var contexto: Context, items:ArrayList<Contacto>): BaseA
         copiaItems?.set(index, newItem)
         items = ArrayList(copiaItems)
         notifyDataSetChanged()
-    }
+    }*/
     //Codigo para actualizar las vistas despues de realizar una operacion
     fun actualizarVistaGrid(){
         items?.clear()

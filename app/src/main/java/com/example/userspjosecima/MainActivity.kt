@@ -78,12 +78,12 @@ class MainActivity : AppCompatActivity() {
         //Lo anterior solo corresponde a agregar la barra del toolbar
 
         contactos = ArrayList()
-        contactos?.add(Contacto("Jose Guillermo", "Cima Tamay", "Costoso", 25, 70.0F, "Ciudad de FCP", "9831319990","josegcima@gmail.com", foto = R.drawable.foto_01))
-        contactos?.add(Contacto("Lupis", "Cima", "Costoso", 25, 70.0F, "Ciudad de FCP", "9831319990","josegcima@gmail.com", foto = R.drawable.foto_02))
-        contactos?.add(Contacto("Lucy", "Ake", "Costoso", 25, 70.0F, "Ciudad de FCP", "9831319990","josegcima@gmail.com", foto = R.drawable.foto_03))
-        contactos?.add(Contacto("Jose Angelo", "Cima Ake", "Costoso", 25, 70.0F, "Ciudad de FCP", "9831319990","josegcima@gmail.com", foto = R.drawable.foto_04))
-        contactos?.add(Contacto("Carmen", "Tamay", "Costoso", 25, 70.0F, "Ciudad de FCP", "9831319990","josegcima@gmail.com", foto = R.drawable.foto_05))
-        contactos?.add(Contacto("Diego", "Cima", "Costoso", 25, 70.0F, "Ciudad de FCP", "9831319990","josegcima@gmail.com", foto = R.drawable.foto_06))
+        contactos?.add(Contacto("Jose", "Cima", "SONY", 25, 70.0F, "Ciudad de FCP", "9831319990","josegcima@gmail.com", foto = R.drawable.foto_01))
+        contactos?.add(Contacto("Lupis", "Cima", "PEPSI", 25, 70.0F, "Ciudad de FCP", "9831319990","josegcima@gmail.com", foto = R.drawable.foto_02))
+        contactos?.add(Contacto("Lucy", "Ake", "HYBE", 25, 70.0F, "Ciudad de FCP", "9831319990","josegcima@gmail.com", foto = R.drawable.foto_03))
+        contactos?.add(Contacto("Jose Angelo", "Cima Ake", "CONTOSO", 25, 70.0F, "Ciudad de FCP", "9831319990","josegcima@gmail.com", foto = R.drawable.foto_04))
+        contactos?.add(Contacto("Carmen", "Tamay", "APPLE", 25, 70.0F, "Ciudad de FCP", "9831319990","josegcima@gmail.com", foto = R.drawable.foto_05))
+        contactos?.add(Contacto("Diego", "Cima", "SAMSUNG", 25, 70.0F, "Ciudad de FCP", "9831319990","josegcima@gmail.com", foto = R.drawable.foto_06))
 
         lista = findViewById<ListView>(R.id.lista)
         grid = findViewById<GridView>(R.id.grid)
